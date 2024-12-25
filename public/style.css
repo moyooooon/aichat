@@ -1,0 +1,156 @@
+body {
+    background-color: darkgreen; /* 背景を黒にする */
+}
+
+
+#chat-history {
+    height: 80vh; /* ビューポートの高さに応じて変化 */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 10px; 
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明の白 */
+    box-sizing: border-box; /* パディングとボーダーを含めた高さ計算 */
+  }
+
+#user-input {
+  width: 70%; /* 横幅を親要素に合わせる */
+  padding: 10px 15px; /* 内側の余白 */
+  margin: 10px 10px; /* 外側の余白（上左右） */
+  font-size: 16px; /* フォントサイズ */
+  border: 1px solid #ccc; /* 枠線 */
+  border-radius: 50px; /* 角丸 */
+  box-sizing: border-box; /* パディングと枠線を含めたサイズ計算 */
+  outline: none; /* フォーカス時の青いアウトラインを消す */
+}
+
+#user-input:focus {
+  border-color: #2e7d32; /* フォーカス時の枠線の色 */
+  box-shadow: 0 0 5px rgba(14, 56, 44, 0.5); /* フォーカス時の影 */
+}
+
+#user-input::placeholder {
+  color: #aaa; /* プレースホルダーの文字色 */
+  font-size: 14px; /* プレースホルダーのフォントサイズ */
+}
+
+.message-container {
+  display: flex; /* Flexboxを使用 */
+  margin-bottom: 10px;
+  align-items: flex-start; /* 上に揃える */
+}
+
+.message.user {
+    background-color: #e0e0e0;
+    text-align: left; /* 左寄せに変更 */
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 70%;
+    align-self: flex-end; /* 右寄せ */
+    position: relative;
+    margin-left: auto; /* 右寄せにするための変更 */
+}
+
+.message.user::before{
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-left-color: #e0e0e0;
+}
+
+
+.message.ai {
+    background-color: greenyellow;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    max-width: 70%;
+    align-self: flex-start;/* 左寄せ */
+    position: relative;
+}
+
+.message.ai::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    margin-top: -10px;
+    border: 10px solid transparent;
+    border-right-color:greenyellow;
+}
+.message.ai.icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc; /* アイコンの背景色 */
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.message.error {
+    background-color: #ffebee;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+#message-input-area {
+    display: flex;
+    margin-top: 20px; /* 少し余白を大きくする */
+    padding: 10px; /* 全体に少しpaddingをつける */
+    background-color: #1a1a1a; /* 背景を少し暗く */
+    border-radius: 30px; /* 角を丸くする */
+    align-items: center; /* 縦中央揃え */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 少し影をつける */
+    margin-left: 10px; /* 左に余白 */
+    margin-right: 10px; /* 右に余白 */
+    transition: all 0.3s ease; /* ホバーアニメーションを追加 */
+}
+
+#message-input-area:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* ホバー時に影を濃くする */
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px 20px; /* 左右のpaddingを少し増やす */
+    background-color: transparent; /* 背景を透明にする */
+    border: none; /* ボーダーを消す */
+    color: #fff; /* 文字色を白にする */
+    font-size: 16px; /* フォントサイズを調整 */
+    outline: none; /* フォーカス時のアウトラインを消す */
+}
+
+#message-input::placeholder {
+    color: #777; /* プレースホルダーの色を調整 */
+}
+
+#send-button {
+    padding: 10px 20px;
+    background-color: yellowgreen; /* 送信ボタンの色 */
+    color: #fff; /* 文字色を白にする */
+    border: none; /* ボーダーを消す */
+    border-radius: 30px; /* 角を丸くする */
+    cursor: pointer; /* カーソルをポインターにする */
+    transition: background-color 0.3s ease; /* ホバーアニメーション */
+    margin-left: 10px; /* inputとの間に余白を作る */
+    outline: none; /* フォーカス時のアウトラインを消す */
+}
+
+#send-button:hover {
+    background-color: #388e3c; /* ホバー時の色を少し暗くする */
+}
+
+#send-button:active {
+    background-color: #2e7d32; /* クリック時の色をさらに暗くする */
+}
