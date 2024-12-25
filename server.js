@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // JSON形式のリクエストボディを解析するためのミドルウェア
 app.use(bodyParser.json());
@@ -82,5 +82,5 @@ app.get('/', (req, res) => {
 
 //ローカルサーバー接続
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server is runnning ${port}`);
 });
