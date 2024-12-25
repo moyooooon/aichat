@@ -82,5 +82,5 @@ app.get('/', (req, res) => {
 
 //ローカルサーバー接続
 app.listen(port, () => {
-  console.log(`Server is runnning ${port}`);
+  console.log(`Server is runnning http://localhost:${port}`);
 });
